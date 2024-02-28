@@ -5,9 +5,9 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum PaymentMethod {
+public enum Status {
 
-    CREDIT_CARD("creditCard");
+    APPROVED("approved");
 
-    private final String code;
+    private final String desc;
 }

@@ -1,8 +1,8 @@
 package com.switchone.homework.dto;
 
 import com.switchone.homework.constant.Currency;
-import com.switchone.homework.constant.PaymentMethod;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,8 +20,8 @@ public class ApprovalRequest {
     private Currency currency;
     @NotNull
     private Long merchantId;
-    @NotNull
-    private PaymentMethod paymentMethod;
+    @NotBlank
+    private String paymentMethod;
     @NotNull
     @Valid
     private PaymentDetailRequest paymentDetails;

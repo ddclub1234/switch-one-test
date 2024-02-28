@@ -1,6 +1,7 @@
 package com.switchone.homework.entity;
 
 import com.switchone.homework.constant.Currency;
+import com.switchone.homework.dto.ApprovalRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -37,5 +38,15 @@ public class Payment {
 
     @Column(name = "approve_datetime", nullable = false)
     private LocalDateTime approveDatetime;
+
+    public static Payment from(PaymentUser paymentUser, Merchant merchant, ApprovalRequest request){
+        return Payment.builder()
+                .paymentUser(paymentUser)
+                .merchant(merchant)
+                .currency(request.getCurrency())
+                .approveAmount(request.getAmount())
+                .approveDatetime(LocalDateTime.now())
+                .build();
+    }
 
 }

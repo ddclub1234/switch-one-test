@@ -1,8 +1,6 @@
 package com.switchone.homework.controller;
 
-import com.switchone.homework.dto.BalanceResponse;
-import com.switchone.homework.dto.EstimateRequest;
-import com.switchone.homework.dto.EstimateResponse;
+import com.switchone.homework.dto.*;
 import com.switchone.homework.service.PaymentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +19,12 @@ public class PaymentController {
     }
 
     @PostMapping(value = "/estimate")
-    public EstimateResponse getBalance(@Valid @RequestBody EstimateRequest request){
+    public EstimateResponse getEstimate(@Valid @RequestBody EstimateRequest request){
         return paymentService.getEstimate(request);
+    }
+
+    @PostMapping(value = "/approval")
+    public ApprovalResponse registerApproval(@Valid @RequestBody ApprovalRequest request){
+        return paymentService.registerApproval(request);
     }
 }

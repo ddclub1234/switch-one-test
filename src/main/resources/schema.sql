@@ -27,9 +27,9 @@ create table `payment_detail`
 (
     id                       bigint  auto_increment comment 'ID' primary key,
     payment_id               bigint        not null comment 'PAYMENT ID',
-    method                   varchar(20)   not null comment '지불 수단',
+    method                   varchar(100)  not null comment '지불 수단',
     card_number              varchar(100)  not null comment '카드 번호',
-    expiry_date              char(4)       not null comment '만료 일자',
+    expiry_date              char(5)       not null comment '만료 일자',
     cvv                      char(3)       not null comment 'cvv',
     foreign key (payment_id)               references `payment`(id)
 );

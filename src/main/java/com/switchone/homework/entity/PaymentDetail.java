@@ -1,6 +1,7 @@
 package com.switchone.homework.entity;
 
-import com.switchone.homework.constant.PaymentMethod;
+import com.switchone.homework.dto.ApprovalRequest;
+import com.switchone.homework.dto.PaymentDetailRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,9 +23,8 @@ public class PaymentDetail {
     @JoinColumn(name = "payment_id", nullable = false)
     private Payment payment;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "method", nullable = false)
-    private PaymentMethod method;
+    private String method;
 
     @Column(name = "card_number", nullable = false)
     private String cardNumber;
@@ -34,5 +34,16 @@ public class PaymentDetail {
 
     @Column(name = "cvv", nullable = false)
     private String cvv;
+
+    public static PaymentDetail from(Payment payment, ApprovalRequest request){
+        PaymentDetailRequest paymentDetailRequest = request.getPaymentDetails();
+        return PaymentDetail.builder()
+                .payment(payment)
+                .method(request.getPaymentMethod())
+                .cardNumber(paymentDetailRequest.getCardNumber())
+                .expiryDate(paymentDetailRequest.getExpireDate())
+                .cvv(paymentDetailRequest.getCvv())
+                .build();
+    }
 
 }
