@@ -1,4 +1,4 @@
-create table `user`
+create table `payment_user`
 (
     id                       bigint  auto_increment comment 'ID' primary key,
     currency                 varchar(10)   not null comment '통화',
@@ -19,7 +19,7 @@ create table `payment`
     currency                 varchar(10)   not null comment '통화',
     approve_amount           double        not null comment '승인 금액',
     approve_datetime         datetime      not null comment '승인 일시',
-    foreign key (user_id)                  references `user`(id),
+    foreign key (user_id)                  references `payment_user`(id),
     foreign key (merchant_id)              references `merchant`(id)
 );
 

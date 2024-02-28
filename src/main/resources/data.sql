@@ -1,4 +1,4 @@
-insert into `user`(id, currency, limit_amount) values (1, 'USD', 10000.00);
+insert into `payment_user`(id, currency, limit_amount) values (1, 'USD', 10000.00);
 
 insert into `merchant`(id, fee_rate) values (1, 0.05);
 
