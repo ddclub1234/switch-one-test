@@ -1,5 +1,6 @@
 package com.switchone.homework.entity;
 
+import com.switchone.homework.constant.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,10 @@ public class PaymentDetail {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "payment_id", nullable = false)
     private Payment payment;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "method", nullable = false)
+    private PaymentMethod method;
 
     @Column(name = "card_number", nullable = false)
     private String cardNumber;
