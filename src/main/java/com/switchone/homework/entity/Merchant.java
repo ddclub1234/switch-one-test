@@ -18,5 +18,5 @@ public class Merchant {
     private Long id;
 
     @Column(name = "fee_rate", nullable = false)
-    private String feeRate;
+    private Float feeRate;
 }

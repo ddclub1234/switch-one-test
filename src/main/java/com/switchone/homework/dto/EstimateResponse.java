@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EstimateResponse {
     private Double estimatedTotal;
-    private Float fees;
+    private Double fees;
     private Currency currency;
+
+    public static EstimateResponse from(Double estimatedTotal, Double fees, Currency currency){
+        return new EstimateResponse(estimatedTotal, fees, currency);
+    }
 }
