@@ -4,4 +4,4 @@
 ## Application Info
 - `Springboot Version : 3.2.3`
 - `Java Version : 17`
-- `Library : jpa, validation, h2`
+- `Library : jpa, validation, lombok, h2`
